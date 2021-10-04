@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/menuTop" >
+        <item
+            android:id="@+id/itemHome"
+            android:checkable="true"
+            android:checked="true"
+            android:title="Home" />
+        <item
+            android:id="@+id/itemAddRecipe"
+            android:checkable="true"
+            android:title="Add Recipe" />
+        <item
+            android:id="@+id/itemProfile"
+            android:checkable="true"
+            android:title="Profile" />
+    </group>
+    <group android:id="@+id/menuBottom" >
+        <item
+            android:id="@+id/itemSignOut"
+            android:checkable="true"
+            android:title="Sign Out" />
+    </group>
+</menu>

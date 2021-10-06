@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recipe_navigation"
+    app:startDestination="@id/itemLogin">
+    <fragment
+        android:id="@+id/itemHome"
+        android:name="com.ubaya.a160419081_myrecipe.view.RecipesListFragment"
+        android:label="Home Screen"
+        tools:layout="@layout/fragment_recipes_list">
+        <action
+            android:id="@+id/actionDetailRecipe"
+            app:destination="@id/detailRecipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemAddRecipe"
+        android:name="com.ubaya.a160419081_myrecipe.view.AddRecipeFragment"
+        android:label="Add Recipe Screen"
+        tools:layout="@layout/fragment_add_recipe" />
+    <fragment
+        android:id="@+id/detailRecipeFragment"
+        android:name="com.ubaya.a160419081_myrecipe.view.DetailRecipeFragment"
+        android:label="Detail Recipe Screen"
+        tools:layout="@layout/fragment_detail_recipe">
+        <action
+            android:id="@+id/actionEditRecipe"
+            app:destination="@id/editRecipeFragment" />
+        <action
+            android:id="@+id/actionHome2"
+            app:destination="@id/itemHome" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="bahan"
+            app:argType="string" />
+        <argument
+            android:name="langkahlangkah"
+            app:argType="string" />
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/editRecipeFragment"
+        android:name="com.ubaya.a160419081_myrecipe.view.EditRecipeFragment"
+        android:label="Edit Recipe Screen"
+        tools:layout="@layout/fragment_edit_recipe">
+        <action
+            android:id="@+id/actionDetailRecipe2"
+            app:destination="@id/detailRecipeFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="bahan"
+            app:argType="string" />
+        <argument
+            android:name="langkahlangkah"
+            app:argType="string" />
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.ubaya.a160419081_myrecipe.view.RegisterFragment"
+        android:label="Register Screen"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/actionLogin"
+            app:destination="@id/itemLogin" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.ubaya.a160419081_myrecipe.view.ProfileFragment"
+        android:label="Profile Screen"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/itemLogin"
+        android:name="com.ubaya.a160419081_myrecipe.view.LoginFragment"
+        android:label="Login Screen"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/actionRegister"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/actionHome"
+            app:destination="@id/itemHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemHubungiKami"
+        android:name="com.ubaya.a160419081_myrecipe.view.HubungiKamiFragment"
+        android:label="Screen Hubungi Kami"
+        tools:layout="@layout/fragment_hubungi_kami" />
+</navigation>

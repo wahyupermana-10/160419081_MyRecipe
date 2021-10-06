@@ -28,6 +28,11 @@ class RegisterFragment : Fragment() {
             val action = RegisterFragmentDirections.actionLogin()
             Navigation.findNavController(it).navigate(action)
         }
+
+        btnSudahPunyaAkun.setOnClickListener {
+            val action = RegisterFragmentDirections.actionLogin()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
 }

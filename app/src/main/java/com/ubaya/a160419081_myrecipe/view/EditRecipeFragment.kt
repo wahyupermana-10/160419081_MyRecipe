@@ -21,6 +21,18 @@ class EditRecipeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if(arguments != null){
+            val name = EditRecipeFragmentArgs.fromBundle(requireArguments()).name
+            val bahan = EditRecipeFragmentArgs.fromBundle(requireArguments()).bahan
+            val langkah2 = EditRecipeFragmentArgs.fromBundle(requireArguments()).langkahlangkah
+            val url = EditRecipeFragmentArgs.fromBundle(requireArguments()).url
+
+            txtEditNameRecipe.setText(name)
+            txtEditBahan.setText(bahan)
+            txtEditLangkahLangkah.setText(langkah2)
+            txtEditUrl.setText(url)
+        }
         btnEdit.setOnClickListener {
             Toast.makeText(activity, "Recipe Berhasil di Ubah", Toast.LENGTH_SHORT).show()
         }

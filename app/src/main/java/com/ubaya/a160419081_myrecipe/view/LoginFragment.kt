@@ -24,12 +24,12 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btnLogin.setOnClickListener{
             Toast.makeText(activity, "Login Sukses", Toast.LENGTH_SHORT).show()
-            val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+            val action = LoginFragmentDirections.actionHome()
             Navigation.findNavController(it).navigate(action)
         }
 
         btnRegister.setOnClickListener {
-            val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+            val action = LoginFragmentDirections.actionRegister()
             Navigation.findNavController(it).navigate(action)
         }
     }

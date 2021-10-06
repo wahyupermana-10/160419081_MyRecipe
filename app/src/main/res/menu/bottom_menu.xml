@@ -9,7 +9,7 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/itemAddRecipe"
-        android:icon="@drawable/ic_baseline_note_add_24"
+        android:icon="@drawable/ic_baseline_add_24"
         android:title="Add Recipe"
         app:showAsAction="always" />
     <item

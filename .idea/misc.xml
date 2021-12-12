@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/fragment_add_recipe.xml" value="0.264" />
+        <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/fragment_detail_recipe.xml" value="0.176" />
+        <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/fragment_edit_recipe.xml" value="0.19610507246376813" />
+        <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/news_list_item.xml" value="0.2" />
+        <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/recipe_list_item.xml" value="0.23233695652173914" />
         <entry key="..\:/Users/surya/AndroidStudioProjects/160419081_MyRecipe/app/src/main/res/drawable/ic_baseline_error_24.xml" value="0.23201754385964912" />
         <entry key="..\:/Users/surya/AndroidStudioProjects/160419081_MyRecipe/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/surya/AndroidStudioProjects/160419081_MyRecipe/app/src/main/res/layout/fragment_add_recipe.xml" value="0.24547101449275363" />

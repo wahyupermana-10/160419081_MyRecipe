@@ -30,38 +30,17 @@
             android:id="@+id/actionHome2"
             app:destination="@id/itemHome" />
         <argument
-            android:name="name"
-            app:argType="string" />
-        <argument
-            android:name="bahan"
-            app:argType="string" />
-        <argument
-            android:name="langkahlangkah"
-            app:argType="string" />
-        <argument
-            android:name="url"
-            app:argType="string" />
+            android:name="uuid"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/editRecipeFragment"
         android:name="com.ubaya.a160419081_myrecipe.view.EditRecipeFragment"
         android:label="Edit Recipe Screen"
         tools:layout="@layout/fragment_edit_recipe">
-        <action
-            android:id="@+id/actionDetailRecipe2"
-            app:destination="@id/detailRecipeFragment" />
         <argument
-            android:name="name"
-            app:argType="string" />
-        <argument
-            android:name="bahan"
-            app:argType="string" />
-        <argument
-            android:name="langkahlangkah"
-            app:argType="string" />
-        <argument
-            android:name="url"
-            app:argType="string" />
+            android:name="uuid"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"

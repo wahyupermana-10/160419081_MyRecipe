@@ -30,6 +30,14 @@ class DetailRecipeViewModel (application: Application):AndroidViewModel(applicat
             recipeLD.value = db.recipeDao().selectRecipe(uuid)
         }
     }
+
+    fun update(recipeName:String, bahan:String, langkahLangah:String, photoURL: String, uuid: Int){
+        launch {
+            val db = buildDb(getApplication())
+            db.recipeDao().update(recipeName, bahan, langkahLangah, photoURL, uuid)
+        }
+    }
+
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
 

@@ -37,9 +37,7 @@ class EditRecipeFragment : Fragment(), ButtonEditClickListener {
         viewModel.fetch(uuid)
         observeViewModel()
 
-        btnEdit.setOnClickListener {
-            Toast.makeText(activity, "Recipe Berhasil di Ubah", Toast.LENGTH_SHORT).show()
-        }
+        dataBinding.listener = this
     }
 
     fun observeViewModel(){
@@ -49,6 +47,7 @@ class EditRecipeFragment : Fragment(), ButtonEditClickListener {
     }
 
     override fun onButtonEditClick(v: View, obj: Recipe) {
-
+        viewModel.update(obj.recipeName,obj.bahan,obj.langkahLangkah,obj.photoUrl,obj.uuid)
+        Toast.makeText(v.context, "Recipe updated", Toast.LENGTH_SHORT).show()
     }
 }

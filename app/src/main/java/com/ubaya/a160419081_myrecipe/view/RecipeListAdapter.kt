@@ -12,7 +12,7 @@ import com.ubaya.a160419081_myrecipe.model.Recipe
 import com.ubaya.a160419081_myrecipe.util.loadImage
 import kotlinx.android.synthetic.main.recipe_list_item.view.*
 
-class RecipeListAdapter (val recipeList: ArrayList<Recipe>): RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder>(), ButtonDetailClickListener, ButtonUbahClickListener{
+class RecipeListAdapter (val recipeList: ArrayList<Recipe>, val adapterOnClick:(Any)-> Unit): RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder>(), ButtonDetailClickListener, ButtonUbahClickListener, ButtonDeleteClickListener{
     class RecipeViewHolder(val view: RecipeListItemBinding):RecyclerView.ViewHolder(view.root)
 
     fun updateRecipeList(newRecipeList: List<Recipe>){
@@ -31,18 +31,7 @@ class RecipeListAdapter (val recipeList: ArrayList<Recipe>): RecyclerView.Adapte
         holder.view.recipe = recipeList[position]
         holder.view.listener = this
         holder.view.listener2 = this
-//        holder.view.txtNameRecipe.text = recipeList[position].recipeName
-//        holder.view.imgRecipe.loadImage(recipeList[position].photoUrl.toString(),holder.view.progressBar)
-//
-//        holder.view.btnDetail.setOnClickListener {
-//            val namerecipe = recipeList[position].recipeName
-//            val bahan = recipeList[position].bahan
-//            val langkah2 = recipeList[position].langkahLangkah
-//            val url = recipeList[position].photoUrl
-//
-//            val action = RecipesListFragmentDirections.actionDetailRecipe(namerecipe.toString(),bahan.toString(),langkah2.toString(),url.toString())
-//            Navigation.findNavController(it).navigate(action)
-//        }
+        holder.view.listener3 = this
     }
 
     override fun getItemCount(): Int {
@@ -57,5 +46,9 @@ class RecipeListAdapter (val recipeList: ArrayList<Recipe>): RecyclerView.Adapte
     override fun onButtonUbahClick(v: View) {
         val action = RecipesListFragmentDirections.actionUbah(v.tag.toString().toInt())
         Navigation.findNavController(v).navigate(action)
+    }
+
+    override fun onButtonDeleteClick(v: View, obj: Recipe) {
+        adapterOnClick(obj)
     }
 }

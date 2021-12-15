@@ -30,4 +30,12 @@ class ListRecipeViewModel(application: Application):AndroidViewModel(application
             recipeLD.value = db.recipeDao().selectAllRecipe()
         }
     }
+
+    fun deleteRecipe(recipe: Recipe){
+        launch {
+            val db = buildDb(getApplication())
+            db.recipeDao().deleteRecipe(recipe)
+            recipeLD.value = db.recipeDao().selectAllRecipe()
+        }
+    }
 }

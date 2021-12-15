@@ -4,9 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.25277777777777777" />
+        <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.1" />
+        <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout-w936dp/activity_login.xml" value="0.11015625" />
+        <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/activity_login.xml" value="0.146875" />
         <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/fragment_add_recipe.xml" value="0.264" />
         <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/fragment_detail_recipe.xml" value="0.2" />
-        <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/fragment_edit_recipe.xml" value="0.19610507246376813" />
+        <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/fragment_edit_recipe.xml" value="0.30973451327433627" />
+        <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/fragment_recipes_list.xml" value="0.146875" />
         <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/fragment_register.xml" value="0.2105978260869565" />
         <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/news_list_item.xml" value="0.2" />
         <entry key="..\:/Tugas kuliah Wahyu/uasanmp/160419081_MyRecipe/app/src/main/res/layout/recipe_list_item.xml" value="0.425891181988743" />

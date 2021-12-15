@@ -10,7 +10,7 @@ data class Recipe(
     val recipeName:String?,
     @ColumnInfo(name = "bahan")
     val bahan:String?,
-    @ColumnInfo(name = "langkah-langkah")
+    @ColumnInfo(name = "langkahLangkah")
     val langkahLangkah:String?,
     @ColumnInfo(name = "photourl")
     val photoUrl:String?

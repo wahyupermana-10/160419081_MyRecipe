@@ -6,6 +6,8 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.databinding.BindingAdapter
 import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import com.ubaya.a160419081_myrecipe.R
@@ -41,5 +43,13 @@ fun ImageView.loadImage(url:String, progressBar: ProgressBar){
 @BindingAdapter("android:imageUrl", "android:progressBar")
 fun loadPhotoUrl(v:ImageView, url:String, pb:ProgressBar){
     v.loadImage(url, pb)
+}
+
+val MIGRATION_1_2 = object: Migration(1, 2) {
+    override fun migrate(database: SupportSQLiteDatabase) {
+        database.execSQL("Drop TABLE Recipe")
+
+        database.execSQL("CREATE TABLE Recipe (recipeName STRING, bahan STRING, langkahLangkah STRING, photourl STRING)")
+    }
 }
 

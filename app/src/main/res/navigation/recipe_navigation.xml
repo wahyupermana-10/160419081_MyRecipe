@@ -12,6 +12,9 @@
         <action
             android:id="@+id/actionDetailRecipe"
             app:destination="@id/detailRecipeFragment" />
+        <action
+            android:id="@+id/actionUbah"
+            app:destination="@id/editRecipeFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemAddRecipe"
@@ -23,12 +26,6 @@
         android:name="com.ubaya.a160419081_myrecipe.view.DetailRecipeFragment"
         android:label="Detail Recipe Screen"
         tools:layout="@layout/fragment_detail_recipe">
-        <action
-            android:id="@+id/actionEditRecipe"
-            app:destination="@id/editRecipeFragment" />
-        <action
-            android:id="@+id/actionHome2"
-            app:destination="@id/itemHome" />
         <argument
             android:name="uuid"
             app:argType="integer" />

@@ -11,6 +11,14 @@
         <variable
             name="listener"
             type="com.ubaya.a160419081_myrecipe.view.ButtonDetailClickListener" />
+
+        <variable
+            name="listener2"
+            type="com.ubaya.a160419081_myrecipe.view.ButtonUbahClickListener" />
+
+        <variable
+            name="listener3"
+            type="com.ubaya.a160419081_myrecipe.view.ButtonDeleteClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,7 +58,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:text="@{recipe.recipeName}"
                     android:textSize="20sp"
@@ -62,15 +70,17 @@
                 <Button
                     android:id="@+id/btnDetail"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="Detail"
-                    android:tag="@{recipe.uuid}"
                     android:onClick="@{listener::onButtonDetailClick}"
+                    android:tag="@{recipe.uuid}"
+                    android:text="Detail"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgRecipe" />
 
                 <ProgressBar
                     android:id="@+id/progressBar"
@@ -81,6 +91,30 @@
                     app:layout_constraintEnd_toEndOf="@+id/imgRecipe"
                     app:layout_constraintStart_toStartOf="@+id/imgRecipe"
                     app:layout_constraintTop_toTopOf="@+id/imgRecipe" />
+
+                <ImageView
+                    android:id="@+id/imgEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:onClick="@{listener2::onButtonUbahClick}"
+                    android:tag="@{recipe.uuid}"
+                    app:layout_constraintBottom_toTopOf="@+id/btnDetail"
+                    app:layout_constraintEnd_toStartOf="@+id/imgDelete"
+                    app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+                <ImageView
+                    android:id="@+id/imgDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:onClick="@{(view)-> listener3.onButtonDeleteClick(view, recipe)}"
+                    android:tag="@{recipe.uuid}"
+                    app:layout_constraintBottom_toTopOf="@+id/btnDetail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_delete_24" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

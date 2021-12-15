@@ -7,6 +7,10 @@
         <variable
             name="recipe"
             type="com.ubaya.a160419081_myrecipe.model.Recipe" />
+
+        <variable
+            name="listener"
+            type="com.ubaya.a160419081_myrecipe.view.ButtonEditClickListener" />
     </data>
     <FrameLayout
         android:layout_width="match_parent"
@@ -48,7 +52,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
-                        android:hint="@{recipe.recipeName}"
+                        android:hint="Recipe Name"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtEdit">
@@ -66,7 +70,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Edit"
+                        android:onClick="@{(view)->listener.onButtonEditClick(view, recipe)}"
+                        android:tag="@{recipe.uuid}"
+                        android:text="@string/save"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
 
@@ -86,7 +92,8 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtAlatdanBahan"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:hint="Alat dan Bahan" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -105,7 +112,8 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtInputLangkahLangkah"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:hint="Langkah - Langkah" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -126,7 +134,8 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtInputURL"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:hint="Image URL" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>

@@ -6,21 +6,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.ubaya.a160419081_myrecipe.R
+import com.ubaya.a160419081_myrecipe.databinding.FragmentDetailRecipeBinding
+import com.ubaya.a160419081_myrecipe.databinding.FragmentEditRecipeBinding
+import com.ubaya.a160419081_myrecipe.model.Recipe
 import com.ubaya.a160419081_myrecipe.viewmodel.DetailRecipeViewModel
 import kotlinx.android.synthetic.main.fragment_edit_recipe.*
 
-class EditRecipeFragment : Fragment() {
+class EditRecipeFragment : Fragment(), ButtonEditClickListener {
 
     private lateinit var viewModel: DetailRecipeViewModel
+    private lateinit var dataBinding: FragmentEditRecipeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_recipe, container, false)
+        dataBinding = DataBindingUtil.inflate<FragmentEditRecipeBinding>(inflater, R.layout.fragment_edit_recipe, container, false)
+        return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,17 +36,7 @@ class EditRecipeFragment : Fragment() {
         val uuid = EditRecipeFragmentArgs.fromBundle(requireArguments()).uuid
         viewModel.fetch(uuid)
         observeViewModel()
-//        if(arguments != null){
-//            val name = EditRecipeFragmentArgs.fromBundle(requireArguments()).name
-//            val bahan = EditRecipeFragmentArgs.fromBundle(requireArguments()).bahan
-//            val langkah2 = EditRecipeFragmentArgs.fromBundle(requireArguments()).langkahlangkah
-//            val url = EditRecipeFragmentArgs.fromBundle(requireArguments()).url
-//
-//            txtInputName.setText(name)
-//            txtAlatdanBahan.setText(bahan)
-//            txtInputLangkahLangkah.setText(langkah2)
-//            txtInputURL.setText(url)
-//        }
+
         btnEdit.setOnClickListener {
             Toast.makeText(activity, "Recipe Berhasil di Ubah", Toast.LENGTH_SHORT).show()
         }
@@ -48,10 +44,11 @@ class EditRecipeFragment : Fragment() {
 
     fun observeViewModel(){
         viewModel.recipeLD.observe(viewLifecycleOwner, Observer {
-            txtInputName.setText(it.recipeName)
-            txtAlatdanBahan.setText(it.bahan)
-            txtInputLangkahLangkah.setText(it.langkahLangkah)
-            txtInputURL.setText(it.photoUrl)
+            dataBinding.recipe = it
         })
+    }
+
+    override fun onButtonEditClick(v: View, obj: Recipe) {
+
     }
 }

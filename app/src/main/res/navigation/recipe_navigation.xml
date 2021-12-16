@@ -7,20 +7,25 @@
     <fragment
         android:id="@+id/itemHome"
         android:name="com.ubaya.a160419081_myrecipe.view.RecipesListFragment"
-        android:label="Home Screen"
-        tools:layout="@layout/fragment_recipes_list">
+        android:label="Home Screen">
         <action
             android:id="@+id/actionDetailRecipe"
             app:destination="@id/detailRecipeFragment" />
         <action
             android:id="@+id/actionUbah"
             app:destination="@id/editRecipeFragment" />
+        <action
+            android:id="@+id/actionAdd"
+            app:destination="@id/addRecipeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/itemAddRecipe"
+        android:id="@+id/addRecipeFragment"
         android:name="com.ubaya.a160419081_myrecipe.view.AddRecipeFragment"
-        android:label="Add Recipe Screen"
-        tools:layout="@layout/fragment_add_recipe" />
+        android:label="Add Recipe Screen">
+        <action
+            android:id="@+id/actionHome"
+            app:destination="@id/itemHome" />
+    </fragment>
     <fragment
         android:id="@+id/detailRecipeFragment"
         android:name="com.ubaya.a160419081_myrecipe.view.DetailRecipeFragment"

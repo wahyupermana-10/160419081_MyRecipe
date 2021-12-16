@@ -11,10 +11,18 @@ interface ButtonUbahClickListener{
     fun onButtonUbahClick(v:View)
 }
 
+interface ButtonAddClickListener{
+    fun onButtonAddClick(v:View)
+}
+
 interface ButtonEditClickListener{
     fun onButtonEditClick(v:View, obj: Recipe)
 }
 
 interface ButtonDeleteClickListener{
     fun onButtonDeleteClick(v:View, obj:Recipe)
+}
+
+interface ButtonNotificationClickListener{
+    fun onButtonNotificationClick(v:View)
 }

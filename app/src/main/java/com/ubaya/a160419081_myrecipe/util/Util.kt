@@ -17,7 +17,8 @@ import java.lang.Exception
 val DB_NAME = "recipedb"
 
 fun buildDb(context: Context):RecipeDatabase{
-    val db = Room.databaseBuilder(context, RecipeDatabase::class.java, DB_NAME).fallbackToDestructiveMigration().build()
+    val db = Room.databaseBuilder(context, RecipeDatabase::class.java, DB_NAME).addMigrations(
+        MIGRATION_3_4).build()
     return db
 }
 
@@ -43,5 +44,11 @@ fun ImageView.loadImage(url:String, progressBar: ProgressBar){
 @BindingAdapter("android:imageUrl", "android:progressBar")
 fun loadPhotoUrl(v:ImageView, url:String, pb:ProgressBar){
     v.loadImage(url, pb)
+}
+
+val MIGRATION_3_4 = object: Migration(3, 4){
+    override fun migrate(database: SupportSQLiteDatabase) {
+        database.execSQL("ALTER TABLE recipe ADD COLUMN recipeStory TEXT NOT NULL DEFAULT''")
+    }
 }
 

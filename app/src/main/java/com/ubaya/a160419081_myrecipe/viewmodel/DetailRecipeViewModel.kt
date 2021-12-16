@@ -17,10 +17,10 @@ class DetailRecipeViewModel (application: Application):AndroidViewModel(applicat
     private val job = Job()
     val recipeLD = MutableLiveData<Recipe>()
 
-    fun addRecipe(list: List<Recipe>){
+    fun addRecipe(recipe: Recipe){
         launch {
             val db = buildDb(getApplication())
-            db.recipeDao().insertAll(*list.toTypedArray())
+            db.recipeDao().insertAll(recipe)
         }
     }
 
@@ -31,10 +31,10 @@ class DetailRecipeViewModel (application: Application):AndroidViewModel(applicat
         }
     }
 
-    fun update(recipeName:String, bahan:String, langkahLangah:String, photoURL: String, uuid: Int){
+    fun update(recipeName:String, recipeStory:String , bahan:String, langkahLangah:String, photoURL: String, uuid: Int){
         launch {
             val db = buildDb(getApplication())
-            db.recipeDao().update(recipeName, bahan, langkahLangah, photoURL, uuid)
+            db.recipeDao().update(recipeName, recipeStory,bahan, langkahLangah, photoURL, uuid)
         }
     }
 

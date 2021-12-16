@@ -10,11 +10,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.ubaya.a160419081_myrecipe.R
-import com.ubaya.a160419081_myrecipe.databinding.FragmentDetailRecipeBinding
 import com.ubaya.a160419081_myrecipe.databinding.FragmentEditRecipeBinding
 import com.ubaya.a160419081_myrecipe.model.Recipe
 import com.ubaya.a160419081_myrecipe.viewmodel.DetailRecipeViewModel
-import kotlinx.android.synthetic.main.fragment_edit_recipe.*
 
 class EditRecipeFragment : Fragment(), ButtonEditClickListener {
 
@@ -47,7 +45,7 @@ class EditRecipeFragment : Fragment(), ButtonEditClickListener {
     }
 
     override fun onButtonEditClick(v: View, obj: Recipe) {
-        viewModel.update(obj.recipeName,obj.bahan,obj.langkahLangkah,obj.photoUrl,obj.uuid)
+        viewModel.update(obj.recipeName, obj.recipeStory,obj.bahan,obj.langkahLangkah,obj.photoUrl,obj.uuid)
         Toast.makeText(v.context, "Recipe updated", Toast.LENGTH_SHORT).show()
     }
 }

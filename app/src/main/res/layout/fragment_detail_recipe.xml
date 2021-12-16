@@ -10,7 +10,7 @@
         
         <variable
             name="listener"
-            type="com.ubaya.a160419081_myrecipe.view.ButtonUbahClickListener" />
+            type="com.ubaya.a160419081_myrecipe.view.ButtonNotificationClickListener" />
     </data>
 
     <FrameLayout
@@ -64,7 +64,7 @@
                         android:layout_marginTop="16dp"
                         android:text="Bahan"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtNameRecipeDetail" />
+                        app:layout_constraintTop_toBottomOf="@+id/txtDetailCeritaResep" />
 
                     <TextView
                         android:id="@+id/txtDetailBahan"
@@ -105,6 +105,38 @@
                         app:layout_constraintEnd_toEndOf="@+id/imageView2"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/ceritaresep"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtNameRecipeDetail" />
+
+                    <TextView
+                        android:id="@+id/txtDetailCeritaResep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@{recipe.recipeStory}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                    <Button
+                        android:id="@+id/button"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Ingatkan saya"
+                        android:onClick="@{listener::onButtonNotificationClick}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt2" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </ScrollView>

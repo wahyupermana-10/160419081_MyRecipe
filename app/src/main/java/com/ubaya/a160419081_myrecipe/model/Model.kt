@@ -7,13 +7,15 @@ import androidx.room.PrimaryKey
 @Entity
 data class Recipe(
     @ColumnInfo(name = "recipeName")
-    val recipeName:String,
+    var recipeName:String,
     @ColumnInfo(name = "bahan")
-    val bahan:String,
+    var bahan:String,
     @ColumnInfo(name = "langkahLangkah")
-    val langkahLangkah:String,
+    var langkahLangkah:String,
     @ColumnInfo(name = "photourl")
-    val photoUrl:String
+    var photoUrl:String,
+    @ColumnInfo(name = "recipeStory")
+    var recipeStory: String,
 ){
     @PrimaryKey(autoGenerate = true)
     var uuid:Int = 0

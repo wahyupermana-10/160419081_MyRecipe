@@ -8,7 +8,7 @@
         android:title="Home"
         app:showAsAction="always" />
     <item
-        android:id="@+id/itemAddRecipe"
+        android:id="@+id/addRecipeFragment"
         android:icon="@drawable/ic_baseline_add_24"
         android:title="Add Recipe"
         app:showAsAction="always" />

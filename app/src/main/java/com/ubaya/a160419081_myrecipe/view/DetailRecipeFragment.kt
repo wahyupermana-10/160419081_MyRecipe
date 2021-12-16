@@ -1,11 +1,13 @@
 package com.ubaya.a160419081_myrecipe.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.Observable
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -16,6 +18,7 @@ import com.ubaya.a160419081_myrecipe.viewmodel.DetailRecipeViewModel
 import kotlinx.android.synthetic.main.fragment_detail_recipe.*
 import kotlinx.android.synthetic.main.fragment_detail_recipe.view.*
 import kotlinx.android.synthetic.main.fragment_edit_recipe.*
+import java.util.concurrent.TimeUnit
 
 class DetailRecipeFragment : Fragment() {
     private lateinit var viewModel:DetailRecipeViewModel
@@ -36,7 +39,7 @@ class DetailRecipeFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DetailRecipeViewModel::class.java)
         val uuid = DetailRecipeFragmentArgs.fromBundle(requireArguments()).uuid
         viewModel.fetch(uuid)
-
+        dataBinding.listener = this
         observerViewModel()
     }
 
@@ -46,4 +49,16 @@ class DetailRecipeFragment : Fragment() {
             imageView2.loadImage(it.photoUrl.toString(), progressBarDetailRecipe)
         })
     }
+
+//    override fun onButtonNotificationClick(v: View) {
+//        Observable.timer(5, TimeUnit.SECONDS)
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe {
+//                Log.d("Messages", "five seconds")
+//                MainActivity.showNotification(student.name.toString(),
+//                    "A new notification created",
+//                    R.drawable.ic_baseline_circle_24)
+//            }
+//    }
 }

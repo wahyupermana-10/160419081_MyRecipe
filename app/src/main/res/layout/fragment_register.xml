@@ -149,6 +149,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout13">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtRegPas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword" />
@@ -171,6 +172,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout16">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtReRegPas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword" />

@@ -8,12 +8,18 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ubaya.a160419081_myrecipe.R
-import com.ubaya.a160419081_myrecipe.viewmodel.ListViewModel
+import com.ubaya.a160419081_myrecipe.model.Recipe
+import com.ubaya.a160419081_myrecipe.viewmodel.ListRecipeViewModel
 import kotlinx.android.synthetic.main.fragment_recipes_list.*
 
 class RecipesListFragment : Fragment() {
-    private lateinit var viewModel: ListViewModel
-    private val recipeListAdapter = RecipeListAdapter(arrayListOf())
+    private lateinit var viewModel: ListRecipeViewModel
+    private val recipeListAdapter = RecipeListAdapter(arrayListOf(), { item -> doClick(item)})
+
+    fun doClick(item:Any)
+    {
+        viewModel.deleteRecipe(item as Recipe)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +31,7 @@ class RecipesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ListRecipeViewModel::class.java)
         viewModel.refresh()
 
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -39,7 +45,7 @@ class RecipesListFragment : Fragment() {
             recipeListAdapter.updateRecipeList(it)
         })
 
-        viewModel.loadingErrorLD.observe(viewLifecycleOwner, {
+        viewModel.recipeLoadErrorLD.observe(viewLifecycleOwner, {
             txtError2.visibility = if (it) View.VISIBLE else View.GONE
         })
 

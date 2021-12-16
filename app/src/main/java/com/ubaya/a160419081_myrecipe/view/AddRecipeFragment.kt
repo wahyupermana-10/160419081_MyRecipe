@@ -6,24 +6,43 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.ubaya.a160419081_myrecipe.R
+import com.ubaya.a160419081_myrecipe.databinding.FragmentAddRecipeBinding
+import com.ubaya.a160419081_myrecipe.databinding.FragmentEditRecipeBinding
+import com.ubaya.a160419081_myrecipe.model.Recipe
+import com.ubaya.a160419081_myrecipe.util.NotificationHelper
+import com.ubaya.a160419081_myrecipe.viewmodel.DetailRecipeViewModel
 import kotlinx.android.synthetic.main.fragment_add_recipe.*
 
 
-class AddRecipeFragment : Fragment() {
-
+class AddRecipeFragment : Fragment(), ButtonAddClickListener{
+    private lateinit var viewModel:DetailRecipeViewModel
+    private lateinit var dataBinding: FragmentAddRecipeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_recipe, container, false)
+        dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_recipe, container, false)
+        return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnAdd.setOnClickListener {
-            Toast.makeText(activity, "Recipe Baru Berhasil di tambah", Toast.LENGTH_SHORT).show()
-        }
+
+        viewModel = ViewModelProvider(this).get(DetailRecipeViewModel::class.java)
+        dataBinding.recipe= Recipe("","","","","")
+        dataBinding.listener = this
     }
+
+    override fun onButtonAddClick(v: View) {
+        viewModel.addRecipe(dataBinding.recipe!!)
+        val action = AddRecipeFragmentDirections.actionHome()
+        Navigation.findNavController(v).navigate(action)
+        NotificationHelper(v.context).createNotification("Recipe Ditambahkan", "Sebuah Recipe Baru Berhasil Ditambahkan, Mari Kita Coba!!!")
+    }
+
 }

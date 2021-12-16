@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.ubaya.a160419081_myrecipe.R
 import com.ubaya.a160419081_myrecipe.databinding.FragmentDetailRecipeBinding
+import com.ubaya.a160419081_myrecipe.util.NotificationHelper
 import com.ubaya.a160419081_myrecipe.util.loadImage
 import com.ubaya.a160419081_myrecipe.viewmodel.DetailRecipeViewModel
 import kotlinx.android.synthetic.main.fragment_detail_recipe.*
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_detail_recipe.view.*
 import kotlinx.android.synthetic.main.fragment_edit_recipe.*
 import java.util.concurrent.TimeUnit
 
-class DetailRecipeFragment : Fragment() {
+class DetailRecipeFragment : Fragment(), ButtonNotificationClickListener {
     private lateinit var viewModel:DetailRecipeViewModel
     private lateinit var dataBinding: FragmentDetailRecipeBinding
 
@@ -50,15 +51,7 @@ class DetailRecipeFragment : Fragment() {
         })
     }
 
-//    override fun onButtonNotificationClick(v: View) {
-//        Observable.timer(5, TimeUnit.SECONDS)
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe {
-//                Log.d("Messages", "five seconds")
-//                MainActivity.showNotification(student.name.toString(),
-//                    "A new notification created",
-//                    R.drawable.ic_baseline_circle_24)
-//            }
-//    }
+    override fun onButtonNotificationClick(v: View) {
+
+    }
 }

@@ -13,6 +13,7 @@ import com.ubaya.a160419081_myrecipe.R
 import com.ubaya.a160419081_myrecipe.databinding.FragmentAddRecipeBinding
 import com.ubaya.a160419081_myrecipe.databinding.FragmentEditRecipeBinding
 import com.ubaya.a160419081_myrecipe.model.Recipe
+import com.ubaya.a160419081_myrecipe.util.NotificationHelper
 import com.ubaya.a160419081_myrecipe.viewmodel.DetailRecipeViewModel
 import kotlinx.android.synthetic.main.fragment_add_recipe.*
 
@@ -41,6 +42,7 @@ class AddRecipeFragment : Fragment(), ButtonAddClickListener{
         viewModel.addRecipe(dataBinding.recipe!!)
         val action = AddRecipeFragmentDirections.actionHome()
         Navigation.findNavController(v).navigate(action)
+        NotificationHelper(v.context).createNotification("Recipe Ditambahkan", "Sebuah Recipe Baru Berhasil Ditambahkan, Mari Kita Coba!!!")
     }
 
 }

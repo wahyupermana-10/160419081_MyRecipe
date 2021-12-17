@@ -20,3 +20,20 @@ data class Recipe(
     @PrimaryKey(autoGenerate = true)
     var uuid:Int = 0
 }
+
+@Entity
+data class User(
+    @ColumnInfo(name = "nama")
+    var nama:String,
+    @ColumnInfo(name = "phoneNumber")
+    var phoneNumber:String,
+    @ColumnInfo(name = "email")
+    var email:String,
+    @ColumnInfo(name = "password")
+    var password:String,
+    @ColumnInfo(name = "active")
+    var active:Int
+){
+    @PrimaryKey(autoGenerate = true)
+    var userId:Int = 0
+}

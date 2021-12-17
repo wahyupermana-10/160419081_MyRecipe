@@ -26,3 +26,19 @@ interface ButtonDeleteClickListener{
 interface ButtonNotificationClickListener{
     fun onButtonNotificationClick(v:View)
 }
+
+interface ButtonLoginClickListener{
+    fun onButtonLoginClick(v: View)
+}
+
+interface ButtonNotHaveAccClickListener{
+    fun onButtonNotHaveAccClick(v: View)
+}
+
+interface ButtonRegisterClickListener{
+    fun onButtonRegisterClick(v: View)
+}
+
+interface ButtonHaveAccountClickListener{
+    fun onButtonHaveAccountClick(v: View)
+}
